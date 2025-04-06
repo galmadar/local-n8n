@@ -9,8 +9,6 @@ x-shared: &shared
   restart: always
   image: docker.n8n.io/n8nio/n8n
   environment:
-    - N8N_PROTOCOL=https
-    - N8N_TRUST_PROXY=true
     - DB_TYPE=postgresdb
     - DB_POSTGRESDB_HOST=postgres
     - DB_POSTGRESDB_PORT=5432
@@ -21,8 +19,10 @@ x-shared: &shared
     - QUEUE_BULL_REDIS_HOST=redis
     - QUEUE_HEALTH_CHECK_ACTIVE=true
     - N8N_HOST=n8n.gal-ma.com
+    - N8N_PROTOCOL=https
     - N8N_ENCRYPTION_KEY=${ENCRYPTION_KEY}
     - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+    - WEBHOOK_URL=https://n8n.gal-ma.com
   links:
     - postgres
     - redis
