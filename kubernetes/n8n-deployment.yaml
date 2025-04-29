@@ -50,7 +50,9 @@ spec:
                   name: postgres-secret
                   key: POSTGRES_NON_ROOT_PASSWORD
             - name: N8N_PROTOCOL
-              value: http
+              value: https
+            - name: N8N_HOST
+              value: n8n.gal-ma.com
             - name: N8N_PORT
               value: "5678"
             - name: N8N_SECURE_COOKIE
