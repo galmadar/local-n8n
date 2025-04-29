@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: n8n-ingress
+  namespace: n8n
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - n8n-cluster.gal-ma.com
+    secretName: n8n-tls
+  rules:
+  - host: n8n-cluster.gal-ma.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: n8n
+            port:
+              number: 5678 
